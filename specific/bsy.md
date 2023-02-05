@@ -256,7 +256,7 @@ Pros:
 - **Horizontal** -- same privileges on different account
 - **Vertical** -- increase level of privileges
 
-![](img/privescal.png)
+![](privescal.png)
 Example attack types:
 - Attacks on priviledges (blue)
 
@@ -347,7 +347,7 @@ If something is run under root, it is not ring 0.
 - return to trap handler
 - return values are back in registers
 
-![](img/syscallimpl.png)
+![](syscallimpl.png)
 
 
 ## Types of kernel
@@ -392,7 +392,7 @@ Can be attacked by covert channels - acoustic noise, electromagnetic radiation e
 ## Virtualization
 To simulate (ring 0) instructions on virtual machine
 
-![](img/virttypes.png)
+![](virttypes.png)
 
 - **Hypervisor**
     - communicates with HW directly/through the OS of host

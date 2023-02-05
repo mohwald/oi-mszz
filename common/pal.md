@@ -2,7 +2,7 @@
 ## Notation of asymptotic complexity of algorithms. Basic notation of graph problems - degree, path, circuit, cycle. Graph representations by adjacency, distance, Laplacian and incidence matrices. Adjacency list representation.
 
 Asymptotická náročnost
-- Viz [[common-tal#Asymptotic growth of functions, time and space complexity of algorithms. Correctness of algorithms - variant and invariant.]]
+- Viz [[tal#Asymptotic growth of functions, time and space complexity of algorithms. Correctness of algorithms - variant and invariant.]]
 
 Grafy
 - Graf je dvojice $(V, E)$, kde $V$ je množina vrcholů, a $E$ je množina hran.
@@ -19,18 +19,18 @@ Grafy
 Reprezentace:
 - **Matice sousednosti** (Adjacency matrix)
     - $a_{i,j} = 1 \iff \{v_, v_j\} \in E, ~\text{otherwise}~ a_{i,j} = 0$ 
-    - ![](img/adjmat.jpg) ![](img/adjmat_g.jpg)
+    - ![](adjmat.jpg) ![](adjmat_g.jpg)
 - **Matice vzdáleností** (Distance matrix)
     - Stejná, jako matice sousednosti, ale na pozice dává ceny hran.
 - **Laplacian matrix**
     - $l_{i,j} = \text{deg}(v_i)$ pro $i=j$
     - $l_{i,j} = -1$ pro $\{v_i, v_j\} \in E$
     - $l_{i,j} = 0$ otherwise
-    - ![](img/laplacianmat.jpg) ![](img/laplacianmat_g.jpg)
+    - ![](laplacianmat.jpg) ![](laplacianmat_g.jpg)
 - **Matice incidence**
     - Řádky -> vrcholy, Sloupce -> hrany.
     - Na pozici i,j je 1, pokud pokud hrana j vstupuje do vrcholu i, -1, pokud pokud hrana j vystupuje z vrcholu i, jinak 0
-    - ![](img/incmat.jpg) ![](img/incmat_g.jpg)
+    - ![](incmat.jpg) ![](incmat_g.jpg)
     - Může být výhodná, pokud má graf málo hran.
 - **List sousednosti** (Adjacency list)
     - Každý vrchol si udržuje linked list jeho hran.
@@ -123,7 +123,7 @@ Izomorfismus
     - Pro stromy lze spočítat binárním zápisem takto:
         1. Každému vrcholu přiřadí 01
         2. Od listů do přeposlední vrstvy vloží certifikáty všech potomků mezi 0 1.
-        - ![](img/cert1.jpg) ![](img/cert2.jpg)
+        - ![](cert1.jpg) ![](cert2.jpg)
         - (Od kořene, 0 reprezentuje vpřed, 1 reprezentuje couvání v DFS průchodu.)
     - Izomofismus stromů lze jednoznačně určit certifikáty.
 
@@ -138,7 +138,7 @@ Izomorfismus
 
 **Grayovy kódy** - po seřazení stavů stavů se při přechodu charakterický vektor změní jen na 1 pozici.
 - Sestaví se rekurzivně takto:
-    - ![](img/graycode.jpg)
+    - ![](graycode.jpg)
     - Další velikost se na konci symetricky překlopí a na začátku se první půlka vyplní 0 a druhá 1.
 - Převody:
     - G_5(28) = 10010, protože 28_2 = 11100, a postupně sčítá n-tý a n+1 řád:
@@ -175,7 +175,7 @@ Izomorfismus
     - Viz \*
 
 **Prvočísla**
-- Test prvočíselnosti: viz [[cyber-mkr#Primes and their properties, generating random primes. Probabilistic primality testing, Fermat test, Miller-Rabin test - basic principles and error probability.]]
+- Test prvočíselnosti: viz [[mkr#Primes and their properties, generating random primes. Probabilistic primality testing, Fermat test, Miller-Rabin test - basic principles and error probability.]]
 - Generování seznamu prvočísel: *Eratostenovo síto*:
     1. Vytvoří pole o velikosti $n$.
     2. Pro $p = 1 \dots \sqrt{n}$ vyhazuje násobky $p$ v poli.
@@ -254,7 +254,7 @@ Pro insert, delete, find, viz nahrané přednášky:
 - Jako linked list, ale uzel má skoky o více hladin dále.
 - Aby šel udržet, jak určit hladiny?
     - p=0.5 pro každý další level
-        - ![](img/skiplist1.jpg)
+        - ![](skiplist1.jpg)
     - p=0.25 experimentálně nejlepší
 - Find, insert, delete: očekávaně O(log n), není to amortizovaně.
 
@@ -285,7 +285,7 @@ Pojmy:
 
 Zajímá nás nejkratší počet operací.
 - Pro slovo "patt" lze sestavit automat n všechny Leventeinovy (Hammingovy) vzdálenosti takto:
-    - ![](img/distautomata.jpg)
+    - ![](distautomata.jpg)
 - Jsou to metriky, pro slova $u,v,w$ a vzdálenosti $d_1 = d(u,v), d_2 = d(v,w), d_3 = d(u,w)$ platí:
     - $d_3 \leq d_1 + d_2$
     - $d_3 \geq |d_1 - d_2|$
@@ -294,7 +294,7 @@ Zajímá nás nejkratší počet operací.
     2. ale Levensteinova pouze přidává další hrany, neubírá, takže není, jak zvětšit Hammingovu vzdálenost.
 
 Výpočet Levensteinovy vzdálenosti (DP):
-![](img/ld_example.jpg)
+![](ld_example.jpg)
 ```
 D[0, j] = j
 D[i, 0] = i

@@ -27,7 +27,7 @@
 *Modes of operation:*
 
 **ECB** (Electronic Code Book)
-![](img/ecb.jpg)
+![](ecb.jpg)
 - Výhody a nevýhody blokové šifry.
 
 **CBS** (Cycle Block Chaining)
@@ -38,7 +38,7 @@
 Pro bezpečnost je nejlepší kombinace obou:
 
 **GCM** (Galois Counter Mode)
-![](img/gcm.jpg)
+![](gcm.jpg)
 - Používá *nonce* - unikátní číslo pro komunikaci
 - Používá *MAC* - kontrolní součet na konci zprávy
     - (Není v obr.)
@@ -134,7 +134,7 @@ Linky:
     - *Tamper Evident* - pokud je změněna, lze to jednoduše poznat.
 
 Připojení do sítě
-![](img/gsm.jpg)
+![](gsm.jpg)
 - HLR - Databáze obsahující IMSI, MSIDSN, poslední lokaci.
     - Pro každého uživatele má {IMSI: Master key}
 - VLR - Předvrstva HLR k minimalizování requentů na HLR.

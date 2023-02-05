@@ -34,7 +34,7 @@ Správnost algoritmu:
 Definice Turingova stroje zabere věčnost a práce s TM je zdlouhavá a nudná. Řešení úlohy většinou lze vyjádřit programem, který se potom může přepsat do TM. Pro podporu tohoto tvrzení se dá odkázat na Church-Turing Thesis:
 > Everything computable is computable by a Turing machine.
 
-*Definice TM*: Turingův stroj je sedmice $(Q, \Sigma, \Gamma, \delta, q_0, B, F)$, kde
+**Definice TM**: Turingův stroj je sedmice $(Q, \Sigma, \Gamma, \delta, q_0, B, F)$, kde
 - $Q$ je konečná množina stavů,
 - $\Sigma$ je konečná množina vstupních symbolů,
 - $\Gamma$ je konečná množina páskových symbolů a platí $\Sigma \subset \Gamma$,
@@ -86,15 +86,15 @@ Třídy složitosti:
 - $L \in \text{co-}\mathbf{C}$ pokud jeho doplněk $\hat{L}\in C$.
 
 Redukce
-- *Karp redukce*: $L \leq_{Karp} L'$, pokud existuje polynomiálně časová funkce $g: \Sigma^\star \to \Sigma^\star$, že platí: $x \in L \iff g(x) \in L'$.
+- **Karp redukce**: $L \leq_{Karp} L'$, pokud existuje polynomiálně časová funkce $g: \Sigma^\star \to \Sigma^\star$, že platí: $x \in L \iff g(x) \in L'$.
     - Pro redukci, musí se najít funkce $g$ a ukázat, že má polynomiální čas.
     - Ukázat oběma směry, že pokud vstup $x$ je v jazyku $L$, pak je $g(x)$ v jazyku $L'$.
 - (Cook redukce: $L \leq_{Cook} L'$, pokud existuje orákulum $M$ s polynomiální časovou náročností, které s použitím indikátorové funkce $\chi_{L'}$ vrací $M^{\chi_{L'}} = 1 \iff x \in L$.)
-- *NP-hard*: $L$ je NP-těžký, pokud $\forall L' \in \mathbf{NP}: L' \leq_{\text{Karp}} L$
-- *NP-complete*: $L$ je NP-úplný, pokud je NP-těžký a $L \in \mathbf{NP}$.
-- *Cook-Levinova věta*: SAT je NP-úplný.
+- **NP-hard**: $L$ je NP-těžký, pokud $\forall L' \in \mathbf{NP}: L' \leq_{\text{Karp}} L$
+- **NP-complete**: $L$ je NP-úplný, pokud je NP-těžký a $L \in \mathbf{NP}$.
+- **Cook-Levinova věta**: SAT je NP-úplný.
     - To vede ke stromu redukcí NP-complete úloh až na kořenový SAT:
-![](img/npc_web.jpg)
+![](npc_web.jpg)
 
 Otevřené:
 - $\mathbf{P} \neq \mathbf{NP}$?
@@ -126,7 +126,7 @@ Redukce:
 Platí:
 - $\mathbf{L} \subseteq \mathbf{NL} \subseteq \mathbf{P}$
 - $\mathbf{NP} \subseteq \mathbf{PSPACE}$
-- *Savitchova věta*: $\mathbf{NL} \subseteq \mathbf{SPACE}(\log^2 n)$
+- **Savitchova věta**: $\mathbf{NL} \subseteq \mathbf{SPACE}(\log^2 n)$
     - Důsledkem je $\mathbf{NPSPACE} = \mathbf{PSPACE}$
     - Říká, že nedeterministický program používající paměť $s$ může být převeden na deterministický program používající paměť $O(s^2)$.
 - $\mathbf{NL} = \text{co-}\mathbf{NL}$
@@ -167,10 +167,10 @@ Otevřené:
 ## Decidability and undecidability. Recursive and recursively enumerable languages. Diagonal language. Universal language and Universal Turing machine.
 
 Třídy složitosti
-- *Rekursivní jazyk*: $L \in R$, pokud $L$ rozhoduje nějaký TM.
+- **Rekursivní jazyk**: $L \in R$, pokud $L$ *rozhoduje* nějaký TM.
     - TM jazyk příjímá a na každém vstupu se úspěšně zastaví.
     - Existuje algoritmus, který dokáže určit, zda každé $w \in L$.
-- *Rekursivně spočetný jazyk*: $L \in RE$, pokud existuje nějaký TM, který $L$ příjímá.
+- **Rekursivně spočetný jazyk**: $L \in RE$, pokud existuje nějaký TM, který $L$ *příjímá*.
     - TM se pro každé slovo z $L$ úspěšně zastaví, ale pokud slovo nepatří do $L$, buď se zastaví úspěšně nebo nezastaví vůbec.
     - Existuje algoritmus, který brute-force hledá zda $w \in L$, pokud ano, příjímá, pokud ne, hledá...
 
@@ -193,7 +193,7 @@ Každý přehod TM lze zakódovat jako binární slovo jako $w = 0^i10^j10^k10^l
 - TM jsou spočetné.
 
 *Diagonální jazyk* $L_d$ je jazyk, který který obshuje všechna slova, která neodpovídají kódům nějakého TM.
-- Také říká, že exituje jazyk $L \notin RE$
+- Také říká, že existuje jazyk $L \notin RE$
 - Důkaz: Pro $f: \Sigma^\star \to \{0,1\}$, vybereme různé vstupy $x_1, x_2, \dots$ z $RE$
 |     |x_1|x_2|x_3|...|
 |-----|:-:|:-:|:-:|:-:|
@@ -211,3 +211,20 @@ Každý přehod TM lze zakódovat jako binární slovo jako $w = 0^i10^j10^k10^l
     3. Protože jsou oba (množina jazyků i množina turingových strojů) v $R$, jsou spočetné a navíc každý turingův stroj se zastaví.
     4. Ale flipnutím diagonály vznikne nový jazyk, který žádný TM nemusí rozhodnout.
 - Např. Halting problem, Postův korespondenční problém.
+
+## Přehled tříd úloh
+
+| Rozhodovací                 |             | Optimalizační                  |           |
+| --------------------------- | ----------- | ------------------------------ | --------- |
+| SAT, 3-SAT                  | NP-complete |                                |           |
+| Independent Set             | NP-complete | Max Independent Set            | NP-hard   |
+| 3-Coloring                  | NP-complete |                                |           |
+|                             |             | Shortest Path (w/ neg. cycles) | NP-hard   |
+| Existence Ham. cesty        | NP-complete |                                |           |
+|                             |             | TSP                            | NP-hard   |
+| Primes                      | co-NP       |                                |           |
+| Fermat Primality Test       | RP          |                                |           |
+|                             |             | Integer Factorization          | NP, co-NP |
+| Halting Problem             | RE\\R       |                                |           |
+| Post Correspondence Problem | RE\\R       |                                |           |
+

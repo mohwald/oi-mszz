@@ -19,7 +19,7 @@
     - 1 X 2 S 4 X 8 S 64 = 4 S 16 X 32 = 12
 
 Dohromady jdou EF a opakované čtverce použít jako:
-![](img/ef_squares.jpg)
+![](ef_squares.jpg)
 
 **RSA**
 
@@ -224,6 +224,6 @@ Diskrétní logaritmus
 ## Elliptic Curve Cryptography - Diffie-Hellman key exchange and El-Gamal cryptosystem using an elliptic curve group. Elliptic curve discrete logarithm problem and Baby step-giant step algorithm.
 
 Short story:
-- Stačí definovat křivku a operaci sčítání. Viz. [[cyber-kbe#Blockchain and Bitcoin principles - Private key, address, transaction, block, blockchain, mining, transaction verification.]]
+- Stačí definovat křivku a operaci sčítání. Viz. [[kbe#Blockchain and Bitcoin principles - Private key, address, transaction, block, blockchain, mining, transaction verification.]]
 - Mocnění funguje jako násobení.
 - V eliptických křivkách nejsou definovány pro subexeponenciální algoritmy.
