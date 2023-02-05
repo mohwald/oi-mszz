@@ -27,18 +27,18 @@
 *Modes of operation:*
 
 **ECB** (Electronic Code Book)
-![](ecb.jpg)
+![](../img/ecb.jpg)
 - Výhody a nevýhody blokové šifry.
 
 **CBS** (Cycle Block Chaining)
-![](cbs.jpg)
+![](../img/cbs.jpg)
 - Výhody a nevýhody blokové šifry.
 - A navíc, *poslední zpráva je zranitelná manipulace převracením bitů*. Authentikace vyřeší?
 
 Pro bezpečnost je nejlepší kombinace obou:
 
 **GCM** (Galois Counter Mode)
-![](gcm.jpg)
+![](../img/gcm.jpg)
 - Používá *nonce* - unikátní číslo pro komunikaci
 - Používá *MAC* - kontrolní součet na konci zprávy
     - (Není v obr.)
@@ -134,7 +134,7 @@ Linky:
     - *Tamper Evident* - pokud je změněna, lze to jednoduše poznat.
 
 Připojení do sítě
-![](gsm.jpg)
+![](../img/gsm.jpg)
 - HLR - Databáze obsahující IMSI, MSIDSN, poslední lokaci.
     - Pro každého uživatele má {IMSI: Master key}
 - VLR - Předvrstva HLR k minimalizování requentů na HLR.
@@ -152,7 +152,7 @@ Připojení do sítě
     - "Agáta" (IMSI Catcher) - MitM útok - lze vložit BSC se silnějším signálem k telefonu a pak přeposílat traffic.
     - Downgrade útok - fake vysílač řekne, že umí jen A5/0 šifrování nebo lehkou A5/2
     - Není Perfect Forward Secrecy - Agáta pošle zpět znovu předtím zaznamenaný RAND, SIM vrátí spojení zašifrované (stejné) K_C, což lze snadno rozšifrovat.
-![](gsm_pfs.jpg)
+![](../img/gsm_pfs.jpg)
 - *Non-repudiation* - zadání PIN identifikuje uživatele (a přenáší na něj odpovědnost, když mu někdo provolá kredit)
 - Streamová šifra s klíčem K_C šifruje hovor a nelze jednoduše odposlechnout. Ale kvůli utajení se zachovaly chyby.
     - A5/0 - žádné šifrování

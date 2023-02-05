@@ -24,7 +24,7 @@ def ilp(A, b, c, z_best, x_best):
             z_best, x_best = z_ilp, x_ilp
     return z_best, x_best
 ```
-![](ilp_bb.jpg)
+![](../img/ilp_bb.jpg)
 
 **Základní úlohy pro $x_1, x_2 \in \{0,1\}$**
 - $x_1 = 1 \implies x_2 = 1$
@@ -62,7 +62,7 @@ def ilp(A, b, c, z_best, x_best):
         - $\sum_{j = 1 \dots m} w_{i,j} x_j = 0$ (do ostatních jednou vlezeme a vylezeme)
         - $\sum_{j = 1 \dots m} w_{t,j} x_j = -1$ (do cílového vlezeme)
         - $\boldsymbol{w} \in \{-1, 0, 1\}^{n \times m}$ - matice incidence, kde řádky odpovídají vrcholům, sloupce hranám, $\boldsymbol{x} \in \mathbb{R}^m_{0+}$ (proměnná), $\boldsymbol{c} \in \mathbb{R}^m_{0+}$
-    - ![](ilp_sp.jpg)
+    - ![](../img/ilp_sp.jpg)
 - *Obchodní cestující*
     - Dostaneme matici sousednosti s cenami.
     - min $\sum_{i = 1 \dots n, j = 1 \dots m} c_{i,j} \cdot x_{i,j}$
@@ -135,7 +135,7 @@ Podobné problémy:
 **Floyd-Warshallův algoritmus**
 - Vytvoří matici všech párů nejtraších cest.
 - Jeden krok algoritmu:
-    - ![](sp_floyd.jpg)
+    - ![](../img/sp_floyd.jpg)
 - [Příklad](https://youtu.be/eFLIzXDeJ6U?t=3518)
 - Čas: $O(n^3)$
 
@@ -166,7 +166,7 @@ Podobné problémy:
     - Pokud je nalezena, potom lze přidat (ubrat) tok dopředné (zpětné) hrany.
     - Kapacita je definována jako $$\gamma = \min \{\min_{e \text{~is forward}} u(e)-f(e), \min_{e \text{~is backward}} f(e)-l(e)\}$$
 - Jeden krok algoritmu:
-    - ![](ff_step.jpg)
+    - ![](../img/ff_step.jpg)
 - *Intergral flow theorem*: Pokud má síť celočíselné kapacity a existuje přípustný tok. pak existuje celočíselný MaxFlow.
 - Čas: $O(|E|^2 \cdot |V|)$ - pokud se použije BFS na hledání zlepšující cesty.
 - Úlohy:
@@ -186,7 +186,7 @@ Podobné problémy:
     - První redukce: balance se spočítá jako: $$b(v) = \sum_{e \in \delta_-(v)} l(e) - \sum_{e \in \delta_+(v)} l(e)$$
     - Druhá redukce: Pokud je balance záporná, spojí s $t'$, pokud je balance kladná, tak s $s'$.
 - Příklad redukcí:
-    - ![](ffinit_1.jpg) ![](ffinit_2.jpg) ![](ffinit_3.jpg)
+    - ![](../img/ffinit_1.jpg) ![](../img/ffinit_2.jpg) ![](../img/ffinit_3.jpg)
 
 **MinCostFlow**
 - Podobné, jako Max-Flow, ale každá hrana má cenu a každý uzel má balanci.
@@ -196,7 +196,7 @@ Podobné problémy:
     - Funguje podobně, jako FF algoritmus.
     - Liší se v kroku hledání zlepšující cesty - místo toho hledá cyklus záporné ceny v residuálním grafu:
     - [Sestavení residuálního grafu](https://youtu.be/71B1FMVVX_o?t=640)
-        - ![](cc_step.jpg)
+        - ![](../img/cc_step.jpg)
         - Tok se vylepší tak, že po sestavení residuálního grafu:
             1. Najde cyklus záporné ceny.
             2. Podle minimálního upper boundu v cyklu sníží tok v nalezeném cyklu.
@@ -211,11 +211,11 @@ Podobné problémy:
 **0/1 Knapsack**
 - Každý předmět lze použít nejvýše jednou.
 - S celočíselnými váhami jde řešit jako:
-    - ![](01knapsack_intw.jpg)
+    - ![](../img/01knapsack_intw.jpg)
     - `cache[x,y] = max(cache[x-1, y], cache[x-1, y - w[x]] + c[x])`
     - Řádky - index předmětu, Sloupce - kapacita
 - S celočíselnými cenami jde řešit jako:
-    - ![](01knapsack_intc.jpg)
+    - ![](../img/01knapsack_intc.jpg)
     - `cache[x,y] = min(cache[x-1, y], cache[x-1, y - c[x]] + w[x])`
     - Řádky - index předmětu, Sloupce - cena
 - Čas: $O(n \cdot C)$, kde $C$ je velká konstanta a roste exponenciálně s velikostí kapacity.
@@ -270,7 +270,7 @@ Podobné problémy:
         2. Zdvojí každou hranu v minimální kostře.
         3. Najde eulerovský tah v kostře - dostane posloupnost uzlů.
         4. Každý první výskyt uzlu z tahu zůstane. To celkem utvoří hamiltonovský cyklus.
-    - ![](doubletree.jpg)
+    - ![](../img/doubletree.jpg)
         - Eulerovský tah: A B C B A D A E A
         - Hamiltonovská kružnice: A B C D E A
     - Je to 2-aproximace metrického TSP.
@@ -281,7 +281,7 @@ Podobné problémy:
         3. Hrany z párování přidá do minimální kostry.
         4. Najde eulerovský tah v kostře - dostane posloupnost uzlů.
         5. Každý první výskyt uzlu z tahu zůstane. To celkem utvoří hamiltonovský cyklus.
-    - ![](christophides.jpg)
+    - ![](../img/christophides.jpg)
         - Eulerovský tah: A B C E A D A
         - Hamiltonovská kružnice: A B C E D A
     - Je to 3/2-aproximace metrického TSP.
@@ -389,7 +389,7 @@ Grahamova notace
         - Upraví graf, aby šel nasadit Horn algoritmus.
         - Pro všechny následníky postupně upraví release time jako maximum release time a rozdíly release time a processing time předchůdců.
         - Pro všechny předchůdce postupně upraví deadline jako minumum deadline a rozdíly deadline a processing time předchůdců.
-        - ![](chsb.jpg)
+        - ![](../img/chsb.jpg)
         - [Příklad](https://youtu.be/MjekjcErKPc?t=1874)
 
 Úlohy s více procesory
@@ -399,7 +399,7 @@ Grahamova notace
     - **Rothkopf pseudopolynomiální algoritmus**
         - Pro každý procesor vytvoří novou dimenzi.
         - Iteruje postupně přes úlohy a vkládá, kdy dosavadní posloupnost dokončí každý procesor.
-        - ![](rothkopf.jpg)
+        - ![](../img/rothkopf.jpg)
         - [Příklad](https://youtu.be/MjekjcErKPc?t=5759)
         - Čas: $O(n \cdot \text{UB}^R)$
 - $P | pmtn | C_{max}$ - lehké
@@ -407,7 +407,7 @@ Grahamova notace
         - Algoritmus:
             1. Spočte $C_{max}^* = max\{\max p_i, \frac{1}{R} \sum_{1}^{n} p_i\}$
             2. Do "krabice" $R \times C_{max}^*$ postupně vpáskuje všechny úlohy.
-        - ![](mcnaughton.jpg)
+        - ![](../img/mcnaughton.jpg)
         - [Příklad](https://youtu.be/MjekjcErKPc?t=3452)
         - Čas: $O(n)$
 - $P | r_j; \tilde{d}_j | -$ - lehké
@@ -462,4 +462,4 @@ Pojmy:
     3. Ověří, že pro každou hodnotu domény $x_1$ existuje hodnota v $x_2$
     4. Pokud pro nějakou hodnotu neexistuje, vyřadí ji z domény $x_1$ a provede další krok, jinak goto 2.
     5. Enqueue $(*,x_1)$ (dá do fronty všechny hrany, které vedou do $x_1$).
-- ![](ac3.jpg)
+- ![](../img/ac3.jpg)

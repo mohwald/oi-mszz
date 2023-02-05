@@ -19,7 +19,7 @@
     - 1 X 2 S 4 X 8 S 64 = 4 S 16 X 32 = 12
 
 Dohromady jdou EF a opakované čtverce použít jako:
-![](ef_squares.jpg)
+![](../img/ef_squares.jpg)
 
 **RSA**
 

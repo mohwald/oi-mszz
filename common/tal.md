@@ -94,7 +94,7 @@ Redukce
 - **NP-complete**: $L$ je NP-úplný, pokud je NP-těžký a $L \in \mathbf{NP}$.
 - **Cook-Levinova věta**: SAT je NP-úplný.
     - To vede ke stromu redukcí NP-complete úloh až na kořenový SAT:
-![](npc_web.jpg)
+![](../img/npc_web.jpg)
 
 Otevřené:
 - $\mathbf{P} \neq \mathbf{NP}$?

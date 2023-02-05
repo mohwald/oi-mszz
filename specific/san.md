@@ -23,7 +23,7 @@
     - Použijeme robustnějsí t-rozdělení, ve kterém místo toho nastavujeme *stupeň volnosti* - rostoucí stupeň volnosti se blíží normálnímu rozdělení.
     - Používá se pro test nekorelace nebo test významnosti.
 - *p-value* - pravděpodobnost, že budeme pozorovat extrémější výsledek za předpokladu že platí nulová hypotéza.
-    - ![](pvalue.jpg)
+    - ![](../img/pvalue.jpg)
 - *F-test* - testuje nulovou hypotézu, že 2 nezávislé náhodné veličiny mají stejný rozptyl.
 - *Likelihood*
     - *Pravěpodobnost (prior)* popisuje šanci, že budeme pozorovat data nebo jev (dané parametry), bez předchozího pozorování dat.
@@ -97,7 +97,7 @@ Kvalitativní nezávislé proměnné
     - $x_{i,2} = 1$ pokud $i$-tá osoba pochází z Evropy, jinak $x_{i,2} = 0$
     - atd.
 - *Interakce mezi proměnnými*
-    - ![](interaction.jpg)
+    - ![](../img/interaction.jpg)
 
 Výběr nejlepšího modelu (aby model neoverfitoval trénovací data)
 - *Výběr z podmnožin prediktorů*
@@ -139,7 +139,7 @@ Výběr nejlepšího modelu (aby model neoverfitoval trénovací data)
 
 **Local regression**
 - Po malých intervalech provede lineární regrese a pak je projezdí kernelem (asi jako konvoluce).
-- ![](localregression.jpg)
+- ![](../img/localregression.jpg)
 
 ----------
 ## Analýza rozptylu
@@ -198,7 +198,7 @@ Co chce:
 - Klasifikuje jako: $$p(k|x) = \frac{p(k)\frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x-\mu_k}{\sigma})^2}}{\sum_{j=1}^K p(j)\frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2}(\frac{x-\mu_j}{\sigma})^2}} ~\tilde{=}~ x\frac{\mu_k}{\sigma^2}-\frac{\mu_k^2}{2\sigma^2}+\ln p(k)$$
     - Rozhodovací hranice je lineární.
     - Např. pro 2 třídy s $p(1) = p(2) = 0.5$ je hranice $x = \frac{\mu_1 + \mu_2}{2}$
-- ![](lda.jpg)
+- ![](../img/lda.jpg)
 
 **QDA** (Quadratic discriminant analysis)
 - Rozhodovací hranice už není lineární.
@@ -358,7 +358,7 @@ Proč použít clustering?
     1. *E-step*: Spočítá všechny posteriory $p(\boldsymbol{x}_i| \boldsymbol{z}_i, \theta)$ z fixního $\theta$.
     2. *M-step*: Upraví parametry $\theta$ přes maximalizaci hustoty $p(\boldsymbol{x}_i| \boldsymbol{z}_i, \theta)$.
 - V 1D, EM funguje takto:
-    - ![](e-step.gif) ![](m-step.gif)
+    - ![](../img/e-step.gif) ![](../img/m-step.gif)
     - Zelená - latentní proměnná, Červená - data, Černá - funkce dekodéru.
     - První obrázek ukazuje iterování v E-step.
     - Druhý obrázek ukazuje celkové iterace a v každé jak se změní $g$ v M-step.
@@ -376,7 +376,7 @@ Proč použít clustering?
     1. Rozdělí objekty na 2 clustery.
     2. V každém clusteru aplikuje stejný top-down.
 - Může se měnit metrika pro měření vzdálenosti množin (např. max (complete linkage), min(single linkage), centroid, average):
-    - ![](linkage.jpg)
+    - ![](../img/linkage.jpg)
 
 **Spectral Clustering**
 - Řeší, když data mají různé tvary manifoldů.
