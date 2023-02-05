@@ -49,12 +49,14 @@ Minimální kostra
         2. Přidá hranu do podrafu.
     - Má $|V|$ iterací.
     - Čas: O(|V|.|E|) naivně, technicky s Fibbunačiho haldou O(|E| +|V| log |V|) = O(|V| log |V|)
+    - ![](../img/jarnik.gif)
 - **Borůvkův algoritmus**:
     1. K = (V, None)
     2. Dokud má K alespoň 2 komponenty souvislosti:
         1. Pro každou komponentu souvislosti přidá nejemenší incidenční hranu.
     - Každá iterace zabere O(|E|), protože pro každou hranu stačí najít, ke které komponentě patří a uloží se nejmenší hrana.
     - Čas: O(|E| log |V|).
+    - ![](../img/boruvka.gif)
 - **Kruskalův (hladový) algoritmus**:
     1. Seřadí hrany podle ceny.
     2. Provede |V|-1 krát:
@@ -67,12 +69,13 @@ Minimální kostra
             - Pokud x == y, skončí (v Kruskalově alg. by utvořil cyklus)
             - Pokud x != y, nastaví všechny bosse vrcholů menšího podgrafu na bosse většího (s path compression je toto konstatně složitá operace).
     - Čas: O(|E| log |V|), a dokonce s implementací U-F zabere $O(\alpha |V|)$, kde $\alpha$ je inverse Ackermann function.
+    - ![](../img/kruskal.gif)
 
 Komponenta silné souvislosti
 - Pro orinteovaný graf, je to množina vrcholů, kde pro každou dvojici vrcholů existuje cesta tam i zpět.
 - Vrcholy mají 3 stavy: unvisited, open, closed.
 - Pro fungování algoritmů [slidy](https://cw.fel.cvut.cz/old/_media/courses/a4m33pal/2012pal03.pdf)
-- *Kosaraju-Sharir algoritmus*
+- **Kosaraju-Sharir algoritmus**
     1. Vytvoří prázdný zásobník S
     2. Dokud neobsahuje S všechny hrany:
         1. Vybere libovolnou hranu, která není v S a provede DFS průchod.
@@ -82,7 +85,8 @@ Komponenta silné souvislosti
         1. Vyndá vrchol z S a provede na něj DFS průchod. (Pokud už je vrchol v nějaké komponentě, continue)
         2. Všechny vrcholy takto prošlé tvoří jednu komponentu silné souvislosti.
     - Čas: $\Theta(|V| + |E|)$ - list sousednosti, $O(|V|^2)$ - matice sousednosti
-- *Tarjanův algoritmus*
+    - ![](../img/kosaraju.gif)
+- **Tarjanův algoritmus**
     - Každý vrchol v průběhu dostane 2 proměnné: `p`, `z` 
     1. i = 0, provede DFS.
     2. V průchodu pro každý vrchol nastanou tyto možnosti:
@@ -100,6 +104,7 @@ Komponenta silné souvislosti
                 - máme vrchol `x` couvající z vrcholu `y` a jejich odpovídající proměnné dvojice `(p_x, z_x)` a `(p_y, z_y)`
                 - `z_x = min(z_x, z_y)`
     - Čas: $\Theta(|V| + |E|)$, a prakticky rychlejší, než Kosaraju-Sharir, protože provede 1 průchod.
+    - ![](../img/tarjan.gif)
 
 Eulerův tah
 - Průchod neorinetovaným grafem bez opakování hran (obtáhnutí jedním tahem)
@@ -227,15 +232,19 @@ Pro insert, delete, find, viz nahrané přednášky:
 
 **B strom**
 - k -> kolik minimálně klíčů musí být v 1 uzlu (kromě kořene)
+    - Každý uzel má minámálně k-1 klíčů.
+    - Každý uzel má miximálně 2k-1 klíčů.
 - kapacita uzlu = 2k
 - *Multiphase strategy* - je lazy při štěpení uzlu, při insert/delete ohledává kapacity od kořene k listu nahoru i dolu.
 - *Single-phase strategy* - štěpí uzly preventivně, při insert/delete ohledává kapacity od kořene k listu jen dolu.
+    - Dosáhne toho tím, že uzly nikdy nejsou na plné nebo krajní kapacitě, a tak se nepropaguje štěpení.
+    - Typicky se používá lichý klíč, aby šlo jednodušeji preventivně navěšovat při štěpení.
 
 **B+ strom**
 - Všechny data má v listech, v jednotlivých úrovních se nachází routeři.
 - Při insertu v zaplněném listovém uzlu propaguje *kopii mediánu*, jinak funguje stejně, jako B strom
 - Při delete se musí zkontrolovat, zda mazaná hodnota není jen o 1 hladinu výše jako router.
-    - Pro navigaci mohou exisatovat routeři, kteří nejsou data.
+    - Pro navigaci mohou existovat routeři, kteří nejsou data.
 - Umožňuje rychlý range search.
 - Čas: $\Theta(b \log_b n)$ pro find, insert, delete
 

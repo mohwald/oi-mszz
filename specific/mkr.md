@@ -7,7 +7,7 @@
 - Eulerova funkce $\varphi$ je počet čísel v $[0, n-1]$ nesoudělných s $n$ a platí:
     - $\varphi(p) = p-1$
     - $\varphi(p^k) = p^k - p^{k-1}$
-    - $\varphi(m \times n) = \varphi({m}) \times \varphi({n})$
+    - $\varphi(m \cdot n) = \varphi({m}) \cdot \varphi({n})$
 
 **Algoritmus opakovaných čtverců**
 - Umožňuje počítat velké mocniny postupně, jako EF. Nemá podmínky pro základ.
@@ -48,7 +48,7 @@ Důkaz: $a^{e \cdot d} = a^{1 + k\varphi(n)} = a^1 \cdot 1 = a$
 
 **Čínská věta o zbytcích**
 - Soustava rovnic $x = a_i ~\text(mod)~ n_i$, kde $a_i \in \mathbb{N}$ a *$n_i$ jsou po 2 nesoudělná*, má řešení.
-Nejlépe jde vysvětlit na příkladu: TODO
+- Viz Druhá část v [příkladu na Pohling-Hellmanův algoritmus](mkr#Discrete logarithm problem and its use in cryptography. Baby step-giant step algorithm, Pohling-Hellman algorithm and a subexponential algorithm for discrete logarithm - basic ideas of their principles and time complexity.).
 
 **Útoky na RSA**
 
@@ -167,7 +167,7 @@ Diskrétní logaritmus
 **Pohling-Hellman algoritmus**
 - Pro každý faktor $\varphi(n)$ vynásobí obě strany rovnice $\frac{\varphi(n)}{p_i^{e_i}}$.
 - Podle faktorů řeší residuálně rovnici: $(a^x)^{\frac{\varphi(n)}{p_i^{e_i}}} = b^{\frac{\varphi(n)}{p_i^{e_i}}}$ (čínská věta o zbytcích)
-- TODO příklad.
+- ![](../img/pohling-hellman.jpg)
 
 **SEDL** (bez detailů)
 - $y$-hladké číslo $m$ je každé přirozené číslo, jehož všechna prvočísla dělí $m$ a jsou menší rovna $y$.
