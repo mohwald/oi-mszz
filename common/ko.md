@@ -358,9 +358,8 @@ Grahamova notace
         - S každým vstupem si udržuje čas dokončení $c$ aktuálně vybraných úloh.
         - Prořezává ještě chytřeji, než Branch & Bound:
             1. *Missed deadline*: konec, pokud ze zbývajících úloh existuje taková, že $d_j < c + p_j$ (přesněji $d_j < \max\{c, r_j\} + p_j$, ale to potom nemá řešení?)
-            2. *Bound on the solution*: konec, pokud nastane $LB \geq UB$, kde $$LB = \max \{c, \min_{i \in \text{todo}} r_i \} + \sum_{i \in todo} p_i ~,~ UB = \max_{i \in todo} d_i$$
+            2. *Bound on the solution*: konec, pokud nastane $LB \geq UB$, kde $$LB = \max \{c, \min_{i \in \text{todo}} r_i \} + \sum_{i \in todo} p_i ~,~ UB = \max_{i \in todo} d_i$$ Později se UB nastaví na *best so far* $c_{best}$, až se najde přípustné řešení.
             3. *Decomposition*:  $c \leq \min_{i \in todo} r_j \implies$ no backtrack, protože zbývající úlohy už nemohou být spuštěny dříve, než v $c$.
-            4. (Můžu si pamatovat *best so far* $c_{best}$ a nezanořovat se dál, když ho $c$ přesáhne.)
 - $1 | | \sum C_j$ - lehké
     - Vyřeší se jako shortest processing time first (SPT).
 - $1 | | \sum w_j C_j$ - lehké
